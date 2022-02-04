@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-cancel">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="cancel" clip-path="url(#clip-cancel)">
+    <rect id="Rectangle_5346" data-name="Rectangle 5346" width="100" height="100" rx="50" fill="#ffc938"/>
+    <path id="Icon_metro-cross" data-name="Icon metro-cross" d="M62.024,50.131h0l-18.2-18.2,18.2-18.2h0a1.879,1.879,0,0,0,0-2.651l-8.6-8.6a1.88,1.88,0,0,0-2.651,0h0l-18.2,18.2-18.2-18.2h0a1.88,1.88,0,0,0-2.651,0l-8.6,8.6a1.879,1.879,0,0,0,0,2.651h0l18.2,18.2-18.2,18.2h0a1.879,1.879,0,0,0,0,2.651l8.6,8.6a1.879,1.879,0,0,0,2.651,0h0l18.2-18.2,18.2,18.2h0a1.879,1.879,0,0,0,2.651,0l8.6-8.6a1.879,1.879,0,0,0,0-2.651Z" transform="translate(17.429 18.072)"/>
+  </g>
+</svg>

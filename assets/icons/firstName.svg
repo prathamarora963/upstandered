@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-first_name">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="first_name" data-name="first name" clip-path="url(#clip-first_name)">
+    <rect id="Rectangle_5346" data-name="Rectangle 5346" width="100" height="100" rx="12" fill="#ffc938"/>
+    <path id="Icon_awesome-user-alt" data-name="Icon awesome-user-alt" d="M35,39.375A19.688,19.688,0,1,0,15.313,19.688,19.693,19.693,0,0,0,35,39.375ZM52.5,43.75H44.967a23.8,23.8,0,0,1-19.934,0H17.5A17.5,17.5,0,0,0,0,61.25v2.188A6.564,6.564,0,0,0,6.563,70H63.438A6.564,6.564,0,0,0,70,63.438V61.25A17.5,17.5,0,0,0,52.5,43.75Z" transform="translate(15 15)"/>
+  </g>
+</svg>

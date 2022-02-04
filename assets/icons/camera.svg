@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-profile_photo">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="profile_photo" data-name="profile photo" clip-path="url(#clip-profile_photo)">
+    <rect id="Rectangle_17450" data-name="Rectangle 17450" width="100" height="100" rx="18" fill="#ffc938"/>
+    <path id="Icon_awesome-camera" data-name="Icon awesome-camera" d="M60,15.375v33.75a5.626,5.626,0,0,1-5.625,5.625H5.625A5.626,5.626,0,0,1,0,49.125V15.375A5.626,5.626,0,0,1,5.625,9.75H15.938l1.441-3.855A5.617,5.617,0,0,1,22.641,2.25H37.348a5.617,5.617,0,0,1,5.262,3.645L44.063,9.75H54.375A5.626,5.626,0,0,1,60,15.375ZM44.063,32.25A14.063,14.063,0,1,0,30,46.313,14.074,14.074,0,0,0,44.063,32.25Zm-3.75,0A10.313,10.313,0,1,1,30,21.938,10.328,10.328,0,0,1,40.313,32.25Z" transform="translate(20 21.75)"/>
+  </g>
+</svg>

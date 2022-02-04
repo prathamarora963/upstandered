@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-report_sent">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="report_sent" data-name="report sent" clip-path="url(#clip-report_sent)">
+    <circle id="Ellipse_98" data-name="Ellipse 98" cx="98.5" cy="98.5" r="98.5" transform="translate(2 2)" fill="#fff"/>
+    <path id="Icon_awesome-check-double" data-name="Icon awesome-check-double" d="M103.459,35.812,95.347,27.7a4.9,4.9,0,0,0-6.945,0L39.339,76.763,16.518,53.921a4.9,4.9,0,0,0-6.945,0L1.441,62.054a4.921,4.921,0,0,0,0,6.965l34.416,34.436a4.9,4.9,0,0,0,6.945,0l60.637-60.678A4.94,4.94,0,0,0,103.459,35.812ZM37.024,57.527a3.252,3.252,0,0,0,4.63,0l42.61-42.651a3.289,3.289,0,0,0,0-4.63L75,.966a3.252,3.252,0,0,0-4.63,0L39.339,32,27.99,20.632a3.252,3.252,0,0,0-4.63,0l-9.28,9.28a3.289,3.289,0,0,0,0,4.63Z" transform="translate(49.226 54.468)"/>
+  </g>
+</svg>

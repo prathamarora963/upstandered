@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-navigate">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="navigate" clip-path="url(#clip-navigate)">
+    <g id="Ellipse_55" data-name="Ellipse 55" fill="#ffc938" stroke="#000" stroke-width="1">
+      <circle cx="50" cy="50" r="50" stroke="none"/>
+      <circle cx="50" cy="50" r="49.5" fill="none"/>
+    </g>
+    <path id="Icon_awesome-directions" data-name="Icon awesome-directions" d="M58.9,27.342,32.658,1.1a3.76,3.76,0,0,0-5.316,0L1.1,27.342a3.76,3.76,0,0,0,0,5.316L27.342,58.9a3.758,3.758,0,0,0,5.316,0L58.9,32.658a3.76,3.76,0,0,0,0-5.316ZM47.066,28.814,37.2,37.923a.938.938,0,0,1-1.574-.689v-6.3H24.374v7.5a.937.937,0,0,1-.937.938h-3.75a.937.937,0,0,1-.937-.937V29.063a3.75,3.75,0,0,1,3.75-3.75H35.624v-6.3a.938.938,0,0,1,1.574-.689l9.868,9.109a.938.938,0,0,1,0,1.378Z" transform="translate(20 20)"/>
+  </g>
+</svg>

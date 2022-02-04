@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-location_2">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="location_2" data-name="location 2" clip-path="url(#clip-location_2)">
+    <rect id="Rectangle_17450" data-name="Rectangle 17450" width="100" height="100" rx="18" fill="#ffc938"/>
+    <path id="Icon_material-location-on" data-name="Icon material-location-on" d="M32.5,3a24.982,24.982,0,0,0-25,25c0,18.75,25,46.429,25,46.429S57.5,46.75,57.5,28A24.982,24.982,0,0,0,32.5,3Zm0,33.929A8.929,8.929,0,1,1,41.429,28,8.932,8.932,0,0,1,32.5,36.929Z" transform="translate(17.5 11)"/>
+  </g>
+</svg>

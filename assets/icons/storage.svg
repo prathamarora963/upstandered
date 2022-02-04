@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-storage">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="storage" clip-path="url(#clip-storage)">
+    <rect id="Rectangle_17450" data-name="Rectangle 17450" width="100" height="100" rx="18" fill="#ffc938"/>
+    <path id="Icon_material-sd-storage" data-name="Icon material-sd-storage" d="M12.346,3H28.5L6.075,25.5,6,70.5A7.522,7.522,0,0,0,13.5,78h45A7.522,7.522,0,0,0,66,70.5v-60C66,6.375,16.471,3,12.346,3ZM36,25.5H28.5v-15H36Zm11.25,0h-7.5v-15h7.5Zm11.25,0H51v-15h7.5Z" transform="translate(14 10)"/>
+  </g>
+</svg>

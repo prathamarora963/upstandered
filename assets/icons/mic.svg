@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-microphone">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="microphone" clip-path="url(#clip-microphone)">
+    <rect id="Rectangle_17450" data-name="Rectangle 17450" width="100" height="100" rx="18" fill="#ffc938"/>
+    <path id="Icon_awesome-microphone" data-name="Icon awesome-microphone" d="M25,50A13.636,13.636,0,0,0,38.636,36.364V13.636a13.636,13.636,0,1,0-27.273,0V36.364A13.636,13.636,0,0,0,25,50ZM47.727,27.273H45.455a2.272,2.272,0,0,0-2.273,2.273v6.818a18.2,18.2,0,0,1-20,18.094c-9.446-.922-16.365-9.413-16.365-18.9V29.545a2.272,2.272,0,0,0-2.273-2.273H2.273A2.272,2.272,0,0,0,0,29.545v5.7C0,47.983,9.087,59.334,21.591,61.058v4.851H13.636a2.272,2.272,0,0,0-2.273,2.273v2.273a2.272,2.272,0,0,0,2.273,2.273H36.364a2.272,2.272,0,0,0,2.273-2.273V68.182a2.272,2.272,0,0,0-2.273-2.273H28.409v-4.8A25.024,25.024,0,0,0,50,36.364V29.545A2.272,2.272,0,0,0,47.727,27.273Z" transform="translate(25 14)"/>
+  </g>
+</svg>

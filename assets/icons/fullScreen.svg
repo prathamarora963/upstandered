@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-full_screen">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="full_screen" data-name="full screen" clip-path="url(#clip-full_screen)">
+    <path id="Icon_map-fullscreen" data-name="Icon map-fullscreen" d="M1.44,31.349V1.44H32.525l11.439,8.7H24.9L44.918,31.349l-12.393,11.4L12.31,23.725V42.788ZM70.466,1.44H101.44V31.46L92.744,42.9V23.836L71,43.853,59.338,31.992,78.09,12.31H59.027ZM101.44,70.466V101.44H70.355l-11.439-8.7H77.979L57.962,71,70.355,59.338,90.57,78.09V59.027ZM32.414,101.44H1.44V70.355l8.7-11.439V77.979L31.881,57.962,43.542,70.355,24.79,90.57H43.853Z" transform="translate(-1.44 -1.44)"/>
+  </g>
+</svg>

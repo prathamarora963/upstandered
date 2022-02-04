@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ed8652"/>
+      <stop offset="1" stop-color="#eabd53"/>
+    </linearGradient>
+    <filter id="Rectangle_5337" x="-9" y="-6" width="118" height="118" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-account_profile">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="account_profile" data-name="account &amp; profile" clip-path="url(#clip-account_profile)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_5337)">
+      <rect id="Rectangle_5337-2" data-name="Rectangle 5337" width="100" height="100" rx="18" fill="url(#linear-gradient)"/>
+    </g>
+    <path id="Icon_awesome-user-edit" data-name="Icon awesome-user-edit" d="M24.5,28a14,14,0,1,0-14-14A14,14,0,0,0,24.5,28Zm9.8,3.5H32.475a19.04,19.04,0,0,1-15.947,0H14.7A14.7,14.7,0,0,0,0,46.2v4.55A5.252,5.252,0,0,0,5.25,56H35.319a5.252,5.252,0,0,1-.284-2.33l.744-6.661.131-1.214.864-.864,8.455-8.455A14.551,14.551,0,0,0,34.3,31.5Zm4.955,15.893-.744,6.672a1.741,1.741,0,0,0,1.925,1.925l6.661-.744L62.182,40.164,54.34,32.322,39.256,47.394ZM69.237,29.412l-4.145-4.145a2.621,2.621,0,0,0-3.7,0L57.26,29.4l-.448.448,7.853,7.842,4.572-4.572a2.634,2.634,0,0,0,0-3.708Z" transform="translate(15 22)"/>
+  </g>
+</svg>

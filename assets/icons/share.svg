@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-share">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="share" clip-path="url(#clip-share)">
+    <rect id="Rectangle_5346" data-name="Rectangle 5346" width="100" height="100" rx="12" fill="#ffc938"/>
+    <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt" d="M47.143,42.857a12.8,12.8,0,0,0-8.008,2.8L25.409,37.077a12.931,12.931,0,0,0,0-5.583l13.726-8.579a12.834,12.834,0,1,0-4.545-7.267L20.865,24.227a12.857,12.857,0,1,0,0,20.117l13.726,8.579A12.858,12.858,0,1,0,47.143,42.857Z" transform="translate(20 16)"/>
+  </g>
+</svg>

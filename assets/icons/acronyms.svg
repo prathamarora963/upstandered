@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ed8652"/>
+      <stop offset="1" stop-color="#eabd53"/>
+    </linearGradient>
+    <filter id="Rectangle_5337" x="-9" y="-6" width="118" height="118" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Acronyms">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="Acronyms" clip-path="url(#clip-Acronyms)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_5337)">
+      <rect id="Rectangle_5337-2" data-name="Rectangle 5337" width="100" height="100" rx="18" fill="url(#linear-gradient)"/>
+    </g>
+    <path id="Icon_awesome-hands-helping" data-name="Icon awesome-hands-helping" d="M53.376,21H36.751v6.125a7.875,7.875,0,0,1-15.75,0v-13.3L13.9,18.09a6.985,6.985,0,0,0-3.4,5.994v5.173L1.751,34.31a3.492,3.492,0,0,0-1.28,4.78l8.75,15.159A3.5,3.5,0,0,0,14,55.529L25.31,49H40.251a7.006,7.006,0,0,0,7-7H49a3.5,3.5,0,0,0,3.5-3.5v-7h.875A2.619,2.619,0,0,0,56,28.874v-5.25A2.619,2.619,0,0,0,53.376,21ZM69.53,16.909,60.78,1.749A3.5,3.5,0,0,0,56,.469L44.691,7H33.513A7.053,7.053,0,0,0,29.806,8.06l-3.664,2.286A3.476,3.476,0,0,0,24.5,13.31V27.124a4.375,4.375,0,1,0,8.75,0V17.5H53.376A6.129,6.129,0,0,1,59.5,23.624v3.117l8.75-5.053a3.5,3.5,0,0,0,1.28-4.78Z" transform="translate(15.002 21.998)"/>
+  </g>
+</svg>

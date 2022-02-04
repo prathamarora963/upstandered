@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-show_hide">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="show_hide" data-name="show hide" clip-path="url(#clip-show_hide)">
+    <rect id="Rectangle_5338" data-name="Rectangle 5338" width="100" height="100" rx="18" fill="#ffc938"/>
+    <path id="Icon_awesome-eye" data-name="Icon awesome-eye" d="M69.577,26.059A38.979,38.979,0,0,0,35,4.5,38.985,38.985,0,0,0,.423,26.06a3.931,3.931,0,0,0,0,3.547A38.979,38.979,0,0,0,35,51.167a38.985,38.985,0,0,0,34.577-21.56A3.932,3.932,0,0,0,69.577,26.059ZM35,45.333a17.5,17.5,0,1,1,17.5-17.5A17.5,17.5,0,0,1,35,45.333Zm0-29.167a11.583,11.583,0,0,0-3.076.461,5.815,5.815,0,0,1-8.13,8.13A11.64,11.64,0,1,0,35,16.167Z" transform="translate(15 22.5)"/>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-pin">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="pin" clip-path="url(#clip-pin)">
+    <rect id="Rectangle_5347" data-name="Rectangle 5347" width="100" height="100" rx="15" fill="#ffc938"/>
+    <path id="Icon_awesome-lock" data-name="Icon awesome-lock" d="M62.5,35H58.75V23.75a23.75,23.75,0,0,0-47.5,0V35H7.5A7.5,7.5,0,0,0,0,42.5v30A7.5,7.5,0,0,0,7.5,80h55A7.5,7.5,0,0,0,70,72.5v-30A7.5,7.5,0,0,0,62.5,35ZM46.25,35H23.75V23.75a11.25,11.25,0,0,1,22.5,0Z" transform="translate(15 10)"/>
+  </g>
+</svg>

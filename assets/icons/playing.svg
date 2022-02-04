@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="82" viewBox="0 0 100 82">
+  <defs>
+    <clipPath id="clip-play_icon">
+      <rect width="100" height="82"/>
+    </clipPath>
+  </defs>
+  <g id="play_icon" data-name="play icon" clip-path="url(#clip-play_icon)">
+    <g id="Group_3" data-name="Group 3">
+      <rect id="Rectangle_17471" data-name="Rectangle 17471" width="18" height="41" transform="translate(82 41)" fill="#ffc938"/>
+      <rect id="Rectangle_17472" data-name="Rectangle 17472" width="18" height="54" transform="translate(54 28)" fill="#ffc938"/>
+      <rect id="Rectangle_17473" data-name="Rectangle 17473" width="18" height="45" transform="translate(28 37)" fill="#ffc938"/>
+      <rect id="Rectangle_17474" data-name="Rectangle 17474" width="18" height="26" transform="translate(0 56)" fill="#ffc938"/>
+    </g>
+  </g>
+</svg>

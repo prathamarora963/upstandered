@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ed8652"/>
+      <stop offset="1" stop-color="#eabd53"/>
+    </linearGradient>
+    <filter id="Rectangle_5337" x="-9" y="-6" width="118" height="118" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-videos">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="videos" clip-path="url(#clip-videos)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_5337)">
+      <rect id="Rectangle_5337-2" data-name="Rectangle 5337" width="100" height="100" rx="18" fill="url(#linear-gradient)"/>
+    </g>
+    <path id="Icon_awesome-video" data-name="Icon awesome-video" d="M35.021,4.5H4.979A4.979,4.979,0,0,0,0,9.479V39.521A4.979,4.979,0,0,0,4.979,44.5H35.021A4.979,4.979,0,0,0,40,39.521V9.479A4.979,4.979,0,0,0,35.021,4.5ZM54.75,8.427,43.333,16.3V32.7L54.75,40.562A3.34,3.34,0,0,0,60,37.875V11.115A3.341,3.341,0,0,0,54.75,8.427Z" transform="translate(20 25.5)"/>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-record">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="record" clip-path="url(#clip-record)">
+    <rect id="Rectangle_17470" data-name="Rectangle 17470" width="100" height="100" rx="15" fill="#ffc938"/>
+    <path id="Icon_ionic-ios-musical-note" data-name="Icon ionic-ios-musical-note" d="M38.458,3.4c-.6.114-14.994,3.062-15.527,3.164A1.126,1.126,0,0,0,21.9,7.581h0V39.995a3.5,3.5,0,0,1-.3,1.487A3.386,3.386,0,0,1,19.551,43.1c-.419.14-.991.267-1.665.419C14.824,44.2,9.7,45.37,9.7,50.1a5.894,5.894,0,0,0,4.447,5.985,9.546,9.546,0,0,0,1.753.127c1.042,0,4.574-.419,6.506-1.677a6.846,6.846,0,0,0,3.062-6.074V19.271a1.008,1.008,0,0,1,.813-.991l11.792-2.414A2.041,2.041,0,0,0,39.7,13.87v-9.5A1,1,0,0,0,38.458,3.4Z" transform="translate(25.297 20.625)"/>
+  </g>
+</svg>

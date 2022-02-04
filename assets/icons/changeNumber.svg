@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ed8652"/>
+      <stop offset="1" stop-color="#eabd53"/>
+    </linearGradient>
+    <filter id="Rectangle_5337" x="-9" y="-6" width="118" height="118" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-change_number">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="change_number" data-name="change number" clip-path="url(#clip-change_number)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_5337)">
+      <rect id="Rectangle_5337-2" data-name="Rectangle 5337" width="100" height="100" rx="18" fill="url(#linear-gradient)"/>
+    </g>
+    <path id="Icon_awesome-phone-alt" data-name="Icon awesome-phone-alt" d="M58.289,42.4,45.163,36.774a2.813,2.813,0,0,0-3.281.809l-5.813,7.1A43.437,43.437,0,0,1,15.3,23.919l7.1-5.813a2.806,2.806,0,0,0,.809-3.281L17.59,1.7A2.831,2.831,0,0,0,14.367.071L2.18,2.884A2.813,2.813,0,0,0,0,5.625,54.37,54.37,0,0,0,54.376,60a2.813,2.813,0,0,0,2.742-2.18L59.93,45.633A2.847,2.847,0,0,0,58.289,42.4Z" transform="translate(20 20)"/>
+  </g>
+</svg>

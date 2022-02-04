@@ -1,0 +1,107 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run
+
+## exception
+
+ClientException: Connection closed while receiving data
+
+```
+#0      IOClient.send.<anonymous closure> (package:http/src/io_client.dart:49:13)
+#1      _invokeErrorHandler (dart:async/async_error.dart:45:24)
+#2      _HandleErrorStream._handleError (dart:async/stream_pipe.dart:269:9)
+#3      _ForwardingStreamSubscription._handleError (dart:async/stream_pipe.dart:157:13)
+#4      _HttpClientResponse.listen.<anonymous closure> (dart:_http/http_impl.dart:709:16)
+#5      _rootRunBinary (dart:async/zone.dart:1452:47)
+#6      _CustomZone.runBinary (dart:async/zone.dart:1342:19)
+#7      _CustomZone.runBinaryGuarded (dart:async/zone.dart:1252:7)
+#8      _BufferingStreamSubscription._sendError.sendError (dart:async/stream_impl.dart:360:15)
+#9      _BufferingStreamSubscription._sendError (dart:async/stream_impl.dart:378:7)
+#10     _BufferingStreamSubscription._addError (dart:async/stream_impl.dart:280:7)
+#11     _ForwardingStreamSubscription._addError (dart:async/stream_pipe.dart:128:11)
+#12     _addErrorWithReplacement (dart:async/stream_pipe.dart:176:8)
+#13     _HandleErrorStream._handleError (dart:async/stream_pipe.dart:274:11)
+#14     _ForwardingStreamSubscription._handleError (dart:async/stream_pipe.dart:157:13)
+#15     _rootRunBinary (dart:async/zone.dart:1452:47)
+#16     _CustomZone.runBinary (dart:async/zone.dart:1342:19)
+#17     _CustomZone.runBinaryGuarded (dart:async/zone.dart:1252:7)
+#18     _BufferingStreamSubscription._sendError.sendError (dart:async/stream_impl.dart:360:15)
+#19     _BufferingStreamSubscription._sendError (dart:async/stream_impl.dart:378:7)
+#20     _BufferingStreamSubscription._addError (dart:async/stream_impl.dart:280:7)
+#21     _SyncStreamControllerDispatch._sendError (dart:async/stream_controller.dart:737:19)
+#22     _StreamController._addError (dart:async/stream_controller.dart:615:7)
+#23     _StreamController.addError (dart:async/stream_controller.dart:569:5)
+#24     _HttpParser._reportBodyError (dart:_http/http_parser.dart:1183:22)
+#25     _HttpParser._onDone (dart:_http/http_parser.dart:890:9)
+#26     _rootRun (dart:async/zone.dart:1420:47)
+#27     _CustomZone.run (dart:async/zone.dart:1328:19)
+#28     _CustomZone.runGuarded (dart:async/zone.dart:1236:7)
+#29     _BufferingStreamSubscription._sendDone.sendDone (dart:async/stream_impl.dart:394:13)
+#30     _BufferingStreamSubscription._sendDone (dart:async/stream_impl.dart:404:7)
+#31     _BufferingStreamSubscription._close (dart:async/stream_impl.dart:291:7)
+#32     _SyncStreamControllerDispatch._sendDone (dart:async/stream_controller.dart:741:19)
+#33     _StreamController._closeUnchecked (dart:async/stream_controller.dart:596:7)
+#34     _StreamController.close (dart:async/stream_controller.dart:589:5)
+#35     _Socket._onData (dart:io-patch/socket_patch.dart:2173:21)
+#36     _rootRunUnary (dart:async/zone.dart:1444:13)
+#37     _CustomZone.runUnary (dart:async/zone.dart:1335:19)
+#38     _CustomZone.runUnaryGuarded (dart:async/zone.dart:1244:7)
+#39     _BufferingStreamSubscription._sendData (dart:async/stream_impl.dart:341:11)
+#40     _BufferingStreamSubscription._add (dart:async/stream_impl.dart:271:7)
+#41     _SyncStreamControllerDispatch._sendData (dart:async/stream_controller.dart:733:19)
+#42     _StreamController._add (dart:async/stream_controller.dart:607:7)
+#43     _StreamController.add (dart:async/stream_controller.dart:554:5)
+#44     new _RawSocket.<anonymous closure> (dart:io-patch/socket_patch.dart:1709:35)
+#45     _NativeSocket.issueReadEvent.issue (dart:io-patch/socket_patch.dart:1206:18)
+#46     _microtaskLoop (dart:async/schedule_microtask.dart:40:21)
+#47     _startMicrotaskLoop (dart:async/schedule_microtask.dart:49:5)
+#48     _runPendingImmediateCallback (dart:isolate-patch/isolate_patch.dart:119:13)
+#49     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:188:5)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel beta, 2.6.0-5.2.pre, on macOS 11.6 20G165 darwin-x64, locale en-GB)
+    • Flutter version 2.6.0-5.2.pre at /Users/brightroots/Workspace/flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 400608f101 (10 weeks ago), 2021-09-15 15:50:26 -0700
+    • Engine revision 1d521d89d8
+    • Dart version 2.15.0 (build 2.15.0-82.2.beta)
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.3)
+    • Android SDK at /Users/brightroots/Library/Android/sdk
+    • Platform android-31, build-tools 30.0.3
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6915495)
+    • All Android licenses accepted.
+
+[✓] Xcode - develop for iOS and macOS (Xcode 13.0)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • CocoaPods version 1.11.2
+
+[✓] Chrome - develop for the web
+    • Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[✓] Android Studio (version 4.1)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6915495)
+
+[✓] VS Code (version 1.61.2)
+    • VS Code at /Applications/Visual Studio Code.app/Contents
+    • Flutter extension version 3.28.0
+
+[✓] Connected device (3 available)
+    • Redmi 8A (mobile) • 1ccd90cf0506                             • android-arm    • Android 10 (API 29)
+    • iPhone (mobile)   • 29ed3ad9ec94673d43296625838c4f24f0175708 • ios            • iOS 12.5.3 16H41
+    • Chrome (web)      • chrome                                   • web-javascript • Google Chrome 96.0.4664.55
+
+• No issues found!
+```

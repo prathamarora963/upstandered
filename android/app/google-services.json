@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "593722591386",
+    "project_id": "upstanders-896fd",
+    "storage_bucket": "upstanders-896fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593722591386:android:8e6fc7e5c5990d4931f723",
+        "android_client_info": {
+          "package_name": "com.app.upstanders"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "593722591386-641ak01h7kbc8jdvom26ge5vl82jstkk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwpp48IGb3CurqOsC1LPXSHUMB7E6BCJ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "593722591386-641ak01h7kbc8jdvom26ge5vl82jstkk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "593722591386-7m9db9mqaf05lmcfqnksdpjcfidqt0aq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.upstanders"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ed8652"/>
+      <stop offset="1" stop-color="#eabd53"/>
+    </linearGradient>
+    <filter id="Rectangle_5337" x="-9" y="-6" width="118" height="118" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-pin_change">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="pin_change" data-name="pin change" clip-path="url(#clip-pin_change)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_5337)">
+      <rect id="Rectangle_5337-2" data-name="Rectangle 5337" width="100" height="100" rx="18" fill="url(#linear-gradient)"/>
+    </g>
+    <path id="Icon_awesome-lock" data-name="Icon awesome-lock" d="M53.571,30H50.357V20.357a20.357,20.357,0,0,0-40.714,0V30H6.429A6.43,6.43,0,0,0,0,36.429V62.143a6.43,6.43,0,0,0,6.429,6.429H53.571A6.43,6.43,0,0,0,60,62.143V36.429A6.43,6.43,0,0,0,53.571,30ZM39.643,30H20.357V20.357a9.643,9.643,0,0,1,19.286,0Z" transform="translate(20 16)"/>
+  </g>
+</svg>

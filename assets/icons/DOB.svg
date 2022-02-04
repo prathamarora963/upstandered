@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-expire_date">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="expire_date" data-name="expire date" clip-path="url(#clip-expire_date)">
+    <rect id="Rectangle_5346" data-name="Rectangle 5346" width="100" height="100" rx="12" fill="#ffc938"/>
+    <path id="Icon_material-date-range" data-name="Icon material-date-range" d="M27.833,38H20.056v7.778h7.778Zm15.556,0H35.611v7.778h7.778Zm15.556,0H51.167v7.778h7.778Zm7.778-27.222H62.833V3H55.056v7.778H23.944V3H16.167v7.778H12.278a7.742,7.742,0,0,0-7.739,7.778L4.5,73a7.776,7.776,0,0,0,7.778,7.778H66.722A7.8,7.8,0,0,0,74.5,73V18.556A7.8,7.8,0,0,0,66.722,10.778Zm0,62.222H12.278V30.222H66.722Z" transform="translate(10.5 8)"/>
+  </g>
+</svg>

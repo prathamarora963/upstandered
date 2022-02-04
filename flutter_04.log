@@ -1,0 +1,57 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run
+
+## exception
+
+StateError: Bad state: No element
+
+```
+#0      List.first (dart:core-patch/growable_array.dart:332:5)
+#1      ResidentRunner.invokeFlutterExtensionRpcRawOnFirstIsolate (package:flutter_tools/src/resident_runner.dart:862:12)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 2.0.5, on Mac OS X 10.15.7 19H1030 darwin-x64, locale en-IN)
+    • Flutter version 2.0.5 at /Users/apple/Desktop/shrutiprojects/flutter
+    • Framework revision adc687823a (6 weeks ago), 2021-04-16 09:40:20 -0700
+    • Engine revision b09f014e96
+    • Dart version 2.12.3
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.2)
+    • Android SDK at /Users/apple/Library/Android/sdk
+    • Platform android-30, build-tools 30.0.2
+    • Java binary at: /Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin/java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6222593)
+    • All Android licenses accepted.
+
+[✓] Xcode - develop for iOS and macOS
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 12.0.1, Build version 12A7300
+    • CocoaPods version 1.10.0
+
+[✓] Chrome - develop for the web
+    • Chrome at /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
+
+[✓] Android Studio (version 4.0)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Flutter plugin version 50.0.1
+    • Dart plugin version 193.7547
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b3-6222593)
+
+[✓] VS Code (version 1.56.2)
+    • VS Code at /Applications/Visual Studio Code.app/Contents
+    • Flutter extension version 3.22.0
+
+[✓] Connected device (2 available)
+    • Redmi 8A (mobile) • 1ccd90cf0506 • android-arm    • Android 10 (API 29)
+    • Chrome (web)      • chrome       • web-javascript • Google Chrome 91.0.4472.77
+
+• No issues found!
+```

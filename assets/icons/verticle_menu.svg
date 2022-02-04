@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="82" viewBox="0 0 100 82">
+  <defs>
+    <clipPath id="clip-three_dots">
+      <rect width="100" height="82"/>
+    </clipPath>
+  </defs>
+  <g id="three_dots" data-name="three dots" clip-path="url(#clip-three_dots)">
+    <g id="Group_2" data-name="Group 2" transform="translate(1 -9)">
+      <circle id="Ellipse_104" data-name="Ellipse 104" cx="12" cy="12" r="12" transform="translate(37 9)"/>
+      <circle id="Ellipse_105" data-name="Ellipse 105" cx="12" cy="12" r="12" transform="translate(37 38)"/>
+      <circle id="Ellipse_106" data-name="Ellipse 106" cx="12" cy="12" r="12" transform="translate(38 67)"/>
+    </g>
+  </g>
+</svg>

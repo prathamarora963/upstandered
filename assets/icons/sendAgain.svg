@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-send_again">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="send_again" data-name="send again" clip-path="url(#clip-send_again)">
+    <path id="Icon_material-rotate-left" data-name="Icon material-rotate-left" d="M22.164,41.278l-7.448-7.5A41.848,41.848,0,0,0,6.1,54.326H16.776A31.351,31.351,0,0,1,22.164,41.278ZM16.776,64.891H6.1a41.765,41.765,0,0,0,8.558,20.549l7.448-7.5a31.671,31.671,0,0,1-5.335-13.048Zm5.335,28.1a41.859,41.859,0,0,0,20.6,8.505V90.776a31.24,31.24,0,0,1-13-5.441l-7.607,7.66ZM53.279,17.718V1.5L29.243,25.536,53.279,49.044V28.389a31.658,31.658,0,0,1,0,62.441V101.5a42.218,42.218,0,0,0,0-83.782Z" transform="translate(1.895 -1.5)" fill="#fff"/>
+  </g>
+</svg>

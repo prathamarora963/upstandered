@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-chat">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="chat" clip-path="url(#clip-chat)">
+    <g id="Rectangle_5337" data-name="Rectangle 5337" fill="#ffc938" stroke="#000" stroke-width="1">
+      <rect width="100" height="100" rx="20" stroke="none"/>
+      <rect x="0.5" y="0.5" width="99" height="99" rx="19.5" fill="none"/>
+    </g>
+    <g id="Icon_ionic-ios-chatboxes" data-name="Icon ionic-ios-chatboxes" transform="translate(17.337 19.625)">
+      <path id="Path_36" data-name="Path 36" d="M48.262,11.981H17.052a5.374,5.374,0,0,0-5.366,5.366V39.079a5.362,5.362,0,0,0,5.366,5.352H34.91a1.539,1.539,0,0,1,1.07.451l8.873,8.183c.493.479,1.31.282,1.31-.408V45.529c0-.845.535-1.113,1.38-1.113h.141c2.958,0,5.929-2.38,5.929-5.352V17.347A5.344,5.344,0,0,0,48.262,11.981Z" transform="translate(8.336 8.632)"/>
+      <path id="Path_37" data-name="Path 37" d="M21.177,17.163H46.162v-9.2a4.592,4.592,0,0,0-4.591-4.591H7.966A4.592,4.592,0,0,0,3.375,7.966V31.233a4.592,4.592,0,0,0,4.591,4.591h8.605V21.755A4.613,4.613,0,0,1,21.177,17.163Z" transform="translate(0 0)"/>
+    </g>
+  </g>
+</svg>

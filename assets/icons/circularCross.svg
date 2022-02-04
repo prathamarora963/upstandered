@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-I_can_t">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="I_can_t" data-name="I can&apos;t" clip-path="url(#clip-I_can_t)">
+    <circle id="Ellipse_99" data-name="Ellipse 99" cx="50" cy="50" r="50" fill="#de2b2b"/>
+    <path id="Icon_metro-cross" data-name="Icon metro-cross" d="M52.115,42.1h0L36.946,26.928,52.114,11.76h0a1.566,1.566,0,0,0,0-2.209L44.949,2.384a1.567,1.567,0,0,0-2.209,0h0L27.571,17.553,12.4,2.385h0a1.566,1.566,0,0,0-2.209,0L3.027,9.55a1.566,1.566,0,0,0,0,2.209h0L18.2,26.928,3.027,42.1h0a1.566,1.566,0,0,0,0,2.209l7.165,7.165a1.566,1.566,0,0,0,2.209,0h0L27.571,36.3,42.739,51.472h0a1.566,1.566,0,0,0,2.209,0l7.165-7.165a1.566,1.566,0,0,0,0-2.209Z" transform="translate(22.429 23.072)" fill="#fff"/>
+  </g>
+</svg>

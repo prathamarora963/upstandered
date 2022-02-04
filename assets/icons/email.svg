@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-email">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="email" clip-path="url(#clip-email)">
+    <rect id="Rectangle_5346" data-name="Rectangle 5346" width="100" height="100" rx="12" fill="#ffc938"/>
+    <path id="Icon_ionic-md-mail" data-name="Icon ionic-md-mail" d="M74.631,5.625H9.869A7.641,7.641,0,0,0,2.25,13.244V60.863a7.641,7.641,0,0,0,7.619,7.619H74.631a7.641,7.641,0,0,0,7.619-7.619V13.244A7.641,7.641,0,0,0,74.631,5.625Zm-.952,16.191L42.25,42.768,10.821,21.816V14.2L42.25,35.149,73.679,14.2Z" transform="translate(7.75 13.375)"/>
+  </g>
+</svg>
