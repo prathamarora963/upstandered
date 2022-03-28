@@ -11,7 +11,11 @@ import 'package:flutter_sound/public/flutter_sound_recorder.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:mqtt_client/mqtt_client.dart';
+import 'package:mqtt_client/mqtt_server_client.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:upstanders/chat/pages/mqqt_services.dart';
+import 'package:upstanders/chat/pages/singlechat_screen.dart';
 import 'package:upstanders/common/constants/constants.dart';
 import 'package:upstanders/common/local/local_data_helper.dart';
 import 'package:upstanders/common/theme/colors.dart';
@@ -23,6 +27,7 @@ import 'package:upstanders/home/bloc/home_bloc.dart';
 import 'package:upstanders/home/bloc/online_bloc.dart';
 import 'package:upstanders/home/data/model/alert_data_model.dart';
 import 'package:upstanders/home/data/model/profile_model.dart';
+import 'package:upstanders/home/view/view.dart';
 import 'package:upstanders/home/widgets/active_inactive.button.dart';
 import 'package:upstanders/home/widgets/bottom_buttons.dart';
 import 'package:upstanders/home/widgets/build_drawer.dart';
@@ -35,18 +40,25 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:flutter_sound_platform_interface/flutter_sound_recorder_platform_interface.dart';
 
-NotificationDataModel notificationDataModel = NotificationDataModel();
-const theSource = AudioSource.microphone;
+import '../mqtt_model.dart';
 
+NotificationDataModel notificationDataModel = NotificationDataModel();
+Messagenotification message = Messagenotification();
+const theSource = AudioSource.microphone;
 bool showLeave = false;
+bool visiblechaticon = false;
+bool acceptalert = false;
 ProfileModel profileData = ProfileModel();
 bool alertEndedNotified = false;
 bool isAcceptedNotified = false;
 LocalDataHelper localDataHelper = LocalDataHelper();
 bool isCreatedAlert = false;
 String alertId = '';
+String titleforchatscreen = "", senderName;
 AlertBloc alertBloc;
 BuildContext mapBlocContext;
+bool savevalue;
+MqttModel mqqtModel = MqttModel();
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -110,32 +122,97 @@ class __HomeViewState extends State<_HomeView> {
   LocalDataHelper localDataHelper = LocalDataHelper();
   Timer timer;
   Codec _codec = Codec.aacMP4;
+  bool appear;
   String _mPath = 'file.mp4';
   FlutterSoundRecorder _mRecorder = FlutterSoundRecorder();
   FlutterSoundPlayer _mPlayer = FlutterSoundPlayer();
-
   bool _mRecorderIsInited = false;
-
   Timer _timer;
   int sec = 0;
+  var _userId;
   Duration duration = Duration();
+
+  MqttServerClient client =
+      MqttServerClient.withPort('52.14.21.106', 'android', 1883);
+
+  Future<MqttServerClient> connect() async {
+    client.logging(on: false);
+    client.onConnected = onConnected;
+    client.keepAlivePeriod = 20;
+    client.onDisconnected = onDisconnected;
+    //client.onUnsubscribed = onUnsubscribed as UnsubscribeCallback;
+    client.onSubscribed = onSubscribed;
+    client.onSubscribeFail = onSubscribeFail;
+    client.pongCallback = pong;
+
+    final connMessage = MqttConnectMessage()
+        .authenticateAs('username', 'password')
+        .withWillTopic('willtopic')
+        .withWillMessage('Will message')
+        .startClean()
+        .withWillQos(MqttQos.atLeastOnce);
+    client.connectionMessage = connMessage;
+    try {
+      await client.connect();
+    } catch (e) {
+      print('Exception or disconnect====$e');
+      client.disconnect();
+    }
+    client.updates.listen((List<MqttReceivedMessage<MqttMessage>> c) {
+      print("client.updates.listen");
+      final MqttPublishMessage message = c[0].payload as MqttPublishMessage;
+      final pt =
+          MqttPublishPayload.bytesToStringAsString(message.payload.message);
+      final payload = pt.toString();
+      print('Received message:$payload from topic: ${c[0].topic}>');
+    });
+    return client;
+  }
+
+  void onConnected() {
+    print('Connected');
+  }
+
+  void onDisconnected() {
+    print('Disconnected');
+  }
+
+  void onSubscribed(String topic) {
+    print('Subscribed topic: $topic');
+  }
+
+  void onSubscribeFail(String topic) {
+    print('Failed to subscribe $topic');
+  }
+
+  void pong() {
+    print('Ping response client callback invoked');
+  }
 
   @override
   void initState() {
     super.initState();
     showAlertNotification();
+    getid();
     getAlertLastStatusData();
     BlocProvider.of<AlertBloc>(context).initializeValues();
-
     // if (!Platform.isAndroid) {
     //   _mRecorder.openAudioSession();
     // } else {
     //   openTheRecorder().then((value) {
     //     setState(() {
-    //       _mRecorderIsInited = true;
+    //       _mRecorccderIsInited = true;
     //     });
     //   });
     // }
+  }
+
+  void getid() async {
+    _userId = await localDataHelper.getIntvalue(key: USERID);
+    print("userId=============:$_userId");
+    await connect();
+    await client.subscribe("create-alert", MqttQos.atLeastOnce);
+    showAlertNotification();
   }
 
   _showMsg() async {
@@ -150,7 +227,6 @@ class __HomeViewState extends State<_HomeView> {
     // stopRecordings();
     BlocProvider.of<AlertBloc>(context).close();
     // timer?.cancel();
-
     // _mPlayer.closeAudioSession();
     // _mPlayer = null;
     // _mRecorder.closeAudioSession();
@@ -201,7 +277,6 @@ class __HomeViewState extends State<_HomeView> {
     isCreatedAlert = await localDataHelper.getValue(key: IS_CREATE_ALERT);
     alertId = await localDataHelper.getStringValue(key: ALERT_ID);
     // Fluttertoast.showToast(msg: "$alertId");
-
     Map noti = jsonDecode(
         await localDataHelper.getStringValue(key: NOTIFICATION_DATA));
     notificationDataModel = NotificationDataModel.fromJson(noti);
@@ -237,20 +312,31 @@ class __HomeViewState extends State<_HomeView> {
   }
 
   callNotifications(Map<String, dynamic> data) {
+    print("data $data");
     notificationDataModel = NotificationDataModel.fromJson(data);
     print("NOTIFICATION  DATA ${notificationDataModel.toJson()}");
-
+    message = Messagenotification.fromjson(data);
+    print("Message data ${message.toJson()}");
+    String datafromnotification =
+        jsonEncode(Messagenotification.fromjson(data));
+    print("datafromnotification $datafromnotification");
     String notificationData = jsonEncode(NotificationDataModel.fromJson(data));
+    print("notification $notificationData");
     localDataHelper.saveStringValue(
         key: NOTIFICATION_DATA, value: notificationData);
     setState(() {
       alertId = notificationDataModel.alertId;
+      senderName = notificationDataModel.senderName;
+      print(" %$senderName");
     });
-
+    localDataHelper.saveStringValue(key: "senderName", value: senderName);
     if (notificationDataModel.notificationType == "create-alert") {
       ///helper side
-      localDataHelper.saveStringValue(key: ALERT_ID, value: alertId);
+      setState(() async {
+        visiblechaticon = false;
+      });
 
+      localDataHelper.saveStringValue(key: ALERT_ID, value: alertId);
       if (notificationDataModel.type == 'discreet') {
         showDiscreetAlertReceived(
           context,
@@ -262,12 +348,24 @@ class __HomeViewState extends State<_HomeView> {
       }
     } else if (notificationDataModel.notificationType == "accept") {
       // helpee side
-
+      print("helo");
+      acceptalert = true;
+      setState(() {
+        titleforchatscreen = "URGENT";
+      });
+      setState(() async {
+        // await localDataHelper.saveValue(key: SAVEVALUEOFCHAT, value: true);
+        visiblechaticon = true;
+      });
+      print(acceptalert);
       BlocProvider.of<MapScreenBloc>(context)
           .add(UpdateUserMarker(isAlertInCreatingMode: true));
-
       showNoti(context, "ACCEPTED YOUR ALERT");
     } else if (notificationDataModel.notificationType == "end") {
+      setState(() async {
+        // await localDataHelper.saveValue(key: SAVEVALUEOFCHAT, value: false);
+        visiblechaticon = false;
+      });
       //helper side
       localDataHelper.saveStringValue(key: ALERT_ID, value: '');
 
@@ -283,10 +381,28 @@ class __HomeViewState extends State<_HomeView> {
 
       showNotiForAlertEnded(context);
     } else if (notificationDataModel.notificationType == "leave") {
+      setState(() async {
+        // await localDataHelper.saveValue(key: SAVEVALUEOFCHAT, value: false);
+        visiblechaticon = true;
+      });
       // helpee side
       BlocProvider.of<MapScreenBloc>(context)
           .add(UpdateUserMarker(isAlertInCreatingMode: true));
       showNoti(context, "LEFT ALERT");
+    } else if (notificationDataModel.notificationType == "chat-notification") {
+      setState(() async {
+        var string = await localDataHelper.getValue(key: BOOLVAL);
+        print(string);
+        savevalue = string;
+        // await localDataHelper.saveValue(key: SAVEVALUEOFCHAT, value: true);
+        visiblechaticon = true;
+        (savevalue == true) ? print("work") : showNoti(context, "New message");
+      });
+
+      print("hello");
+      print("savevalue $savevalue");
+      // BlocProvider.of<MapScreenBloc>(context)
+      //     .add(UpdateUserMarker(isAlertInCreatingMode: true));
     }
   }
 
@@ -317,8 +433,17 @@ class __HomeViewState extends State<_HomeView> {
                 children: [
                   MapScreen(),
                   _discreenAndUrgnetButton(context),
-                  _buildDrawerBar(),
-                  ActiveInActiveView()
+                  Row(
+                    children: [
+                      _buildDrawerBar(),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.2,
+                      ),
+                      ActiveInActiveView(),
+                      Spacer(),
+                      Visibility(visible: visiblechaticon, child: _chatbutton())
+                    ],
+                  )
                 ],
               ),
             )),
@@ -362,6 +487,51 @@ class __HomeViewState extends State<_HomeView> {
             onPressed: () {
               _scaffoldKey.currentState.openDrawer();
             }),
+      ),
+    );
+  }
+
+  _chatbutton() {
+    return Align(
+      alignment: Alignment.topLeft,
+      child: Stack(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(right: 8.0, top: 10.0),
+            child: IconButton(
+                icon: Image.asset(CHAT_ICON),
+                onPressed: () async {
+                  await localDataHelper.saveValue(
+                      key: SAVEVALUEOFCHAT, value: true);
+                  await localDataHelper.saveValue(key: BOOLVAL, value: true);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Singlechatscreen(
+                                titless: titleforchatscreen,
+                              )));
+                }),
+          ),
+          // Row(
+          //   children: [
+          //     SizedBox(
+          //       width: 30,
+          //     ),
+          //     Column(
+          //       children: [
+          //         SizedBox(
+          //           height: 15,
+          //         ),
+
+          //         CircleAvatar(
+          //           backgroundColor: Colors.red,
+          //           radius: 7,
+          //         ),
+          //       ],
+          //     ),
+          //   ],
+          // )
+        ],
       ),
     );
   }
@@ -437,9 +607,15 @@ class __HomeViewState extends State<_HomeView> {
           title: "URGENT",
           notificationDataModel: notificationDataModel,
           icant: () {
+            setState(() {
+              visiblechaticon = false;
+            });
             Navigator.of(context).pop();
           },
           illgo: () {
+            setState(() {
+              visiblechaticon = true;
+            });
             context
                 .read<AlertBloc>()
                 .add(AcceptAlert(notificationDataModel.alertId));
@@ -516,12 +692,18 @@ class __HomeViewState extends State<_HomeView> {
           notificationDataModel: notificationDataModel,
           gradient: LinearGradient(colors: [
             MyTheme.discreetAlertGradientUp,
-            MyTheme.discreetAlertGradientDown
+            MyTheme.discreetAlertGradientDown,
           ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
           icant: () {
+            setState(() {
+              visiblechaticon = false;
+            });
             Navigator.of(context).pop();
           },
           illgo: () {
+            setState(() {
+              visiblechaticon = true;
+            });
             context
                 .read<AlertBloc>()
                 .add(AcceptAlert(notificationDataModel.alertId));
@@ -579,8 +761,7 @@ class __HomeViewState extends State<_HomeView> {
 
           if (state.res['userCount']) {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => EnterPinCodeScreen(
-                    alertId: alertId)));
+                builder: (context) => EnterPinCodeScreen(alertId: alertId)));
           } else {
             localDataHelper.saveValue(key: IS_ACCEPTED_NOTIFIED, value: false);
             localDataHelper.saveValue(key: IS_CREATE_ALERT, value: false);
@@ -595,6 +776,17 @@ class __HomeViewState extends State<_HomeView> {
 
             return leaveOrEnd(context, size, title: "END ALERT",
                 onEvent: () async {
+              print(acceptalert);
+              // acceptalert == true
+              //     ? Navigator.of(context).push(MaterialPageRoute(
+              //         builder: (context) =>
+              //             EnterPinCodeScreen(alertId: alertId)))
+              //     : print("not accept");
+
+              setState(() {
+                acceptalert = false;
+                visiblechaticon = false;
+              });
               localDataHelper.saveValue(key: IS_CREATE_ALERT, value: false);
               context
                   .read<AlertBloc>()
@@ -604,6 +796,10 @@ class __HomeViewState extends State<_HomeView> {
 
           if (showLeave) {
             return leaveOrEnd(context, size, title: "LEAVE ALERT", onEvent: () {
+              setState(() {
+                visiblechaticon = false;
+              });
+
               context
                   .read<AlertBloc>()
                   .add(LeaveAlert(notificationDataModel.alertId));
@@ -617,12 +813,70 @@ class __HomeViewState extends State<_HomeView> {
   }
 }
 
+shownotification(BuildContext context, String msg) {
+  final size = MediaQuery.of(context).size;
+  showGeneralDialog(
+      context: context,
+      pageBuilder: (_, __, ___) {
+        return Container(
+            height: size.height * 0.14,
+            // margin: EdgeInsets.only(left:marginLeftRight, right: marginLeftRight),
+            // padding:  EdgeInsets.only(left: paddingeftRightTop,  right: paddingeftRightTop, top: paddingeftRightTop),
+            decoration: BoxDecoration(
+              color: MyTheme.primaryColor,
+              //borderRadius: BorderRadius.circular(bordeRadius),
+            ),
+            child: Material(
+                color: MyTheme.primaryColor,
+                //borderRadius: BorderRadius.circular(bordeRadius),
+                child: Column(
+                  children: [
+                    // Align(
+                    //   heightFactor: 0.0,
+                    //   alignment :Alignment.topLeft,
+                    //   child: InkWell(
+                    //         onTap: onHangUp,
+                    //         child: Image.asset(
+                    //           CIRCULAR_CROSS_ASSET,
+                    //           height: size.height * 0.04,
+                    //           width: size.height * 0.04,
+                    //         )),
+                    // ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 20),
+                      child: ListTile(
+                        tileColor: MyTheme.primaryColor,
+                        // leading: UserAvatarNetwok(
+                        //   avatarRadius: size.height * 0.07,
+                        //   networkImage: notificationDataModel.senderImage,
+                        // ),
+                        title: Text(
+                          "${notificationDataModel.senderName}",
+                          style: TextStyle(
+                              fontSize: size.height * 0.025,
+                              fontWeight: FontWeight.bold,
+                              color: MyTheme.secondryColor),
+                        ),
+                        subtitle: Text(
+                          msg,
+                          style: TextStyle(
+                              fontSize: size.height * 0.023,
+                              fontWeight: FontWeight.bold,
+                              color: MyTheme.secondryColor),
+                        ),
+                      ),
+                    ),
+                  ],
+                )));
+      });
+}
+
 showNoti(BuildContext context, String msg) {
   final size = MediaQuery.of(context).size;
 
   showGeneralDialog(
     barrierLabel: "Barrier",
-    barrierDismissible: true,
+    barrierDismissible: false,
     barrierColor: Colors.black.withOpacity(0.5),
     transitionDuration: Duration(milliseconds: 700),
     context: context,
@@ -662,7 +916,10 @@ showNotiForAlertEnded(BuildContext context) {
           alignment: Alignment.center,
           child: EndedAlertDialogBox(
             onContinue: () {
-              Navigator.of(context).pop();
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                  (route) => false);
             },
             notificationDataModel: notificationDataModel,
           ));
@@ -704,8 +961,11 @@ _discreetButton(BuildContext context) {
   final size = MediaQuery.of(context).size;
   return InkWell(
     onTap: () async {
+      visiblechaticon = true;
+      titleforchatscreen = "DISCREET";
       print("_discreetButton CreateAlert");
       context.read<AlertBloc>().add(CreateAlert("discreet"));
+      //  pubsubService.listenMessage();
     },
     child: Container(
       alignment: Alignment.center,
@@ -730,7 +990,11 @@ _urgentButton(BuildContext context) {
   final size = MediaQuery.of(context).size;
   return InkWell(
     onTap: () async {
+      visiblechaticon = true;
+      titleforchatscreen = "URGENT";
       print("_urgentButton CreateAlert");
+      // pubsubService.pubSubConnect();
+      // pubsubService.subscribeChannel();
       context.read<AlertBloc>().add(CreateAlert("urgent"));
     },
     child: Container(

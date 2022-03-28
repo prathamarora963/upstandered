@@ -9,7 +9,7 @@ import 'package:upstanders/home/bloc/home_bloc.dart';
 import 'package:upstanders/home/bloc/online_bloc.dart';
 import 'package:upstanders/home/view/view.dart';
 
-class ActiveInActiveView extends StatefulWidget {
+class  ActiveInActiveView extends StatefulWidget {
   @override
   State<ActiveInActiveView> createState() => _ActiveInActiveViewState();
 }

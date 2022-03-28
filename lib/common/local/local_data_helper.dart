@@ -19,16 +19,30 @@ class LocalDataHelper {
     prefs.setString(key, value);
   }
 
+  saveIntValue({@required String key, @required int value}) async {
+    prefs = await SharedPreferences.getInstance();
+    prefs.setInt(key, value);
+  }
+
+ 
+
   Future<String> getStringValue({@required String key}) async {
     prefs = await SharedPreferences.getInstance();
     var getStringVal = prefs.getString(key);
-    return getStringVal ?? "";
+    return getStringVal;
   }
+
 
   Future<bool> getValue({@required String key}) async {
     prefs = await SharedPreferences.getInstance();
     bool getVal = prefs.getBool(key);
     return getVal;
+  }
+
+  Future<int> getIntvalue({@required String key}) async {
+    prefs = await SharedPreferences.getInstance();
+    int getintvalue = prefs.getInt(key);
+    return getintvalue;
   }
 
   remove({@required String key}) async {
@@ -42,18 +56,17 @@ class LocalDataHelper {
   }
 }
 
-
 initializingData() {
-   LocalDataHelper localDataHelper = LocalDataHelper();
-    localDataHelper.saveValue(key: ALERT_ENDED_NOTIFIED, value: false);
-    localDataHelper.saveValue(key: IS_ACCEPTED_NOTIFIED, value: false);
-    localDataHelper.saveValue(key: SHOW_LEAVE, value: false);
-    localDataHelper.saveValue(key: IS_CREATE_ALERT, value: false);
-    localDataHelper.saveStringValue(key: ALERT_ID, value: '');
-    localDataHelper.saveValue(key: IS_FILE_SAVED, value: false);
-    localDataHelper.saveValue(key: IS_ALREADY_STOPPED_REC, value: false);
+  LocalDataHelper localDataHelper = LocalDataHelper();
+  localDataHelper.saveValue(key: ALERT_ENDED_NOTIFIED, value: false);
+  localDataHelper.saveValue(key: IS_ACCEPTED_NOTIFIED, value: false);
+  localDataHelper.saveValue(key: SHOW_LEAVE, value: false);
+  localDataHelper.saveValue(key: IS_CREATE_ALERT, value: false);
+  localDataHelper.saveStringValue(key: ALERT_ID, value: '');
+  localDataHelper.saveValue(key: IS_FILE_SAVED, value: false);
+  localDataHelper.saveValue(key: IS_ALREADY_STOPPED_REC, value: false);
 
-    String notificationData = jsonEncode(NotificationDataModel.fromJson({}));
-    localDataHelper.saveStringValue(key: NOTIFICATION_DATA, value: notificationData);
+  String notificationData = jsonEncode(NotificationDataModel.fromJson({}));
+  localDataHelper.saveStringValue(
+      key: NOTIFICATION_DATA, value: notificationData);
 }
-

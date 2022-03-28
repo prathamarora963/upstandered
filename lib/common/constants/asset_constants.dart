@@ -20,7 +20,10 @@ const EYE_ASSET = "assets/icons/eyes.png";
 const EYE_CLOSE = "assets/icons/eyes_close.png";
 const COUNTRY_CODE_ASSET = 'assets/icons/countryCode.png';
 const PERSON_ASSET = 'assets/icons/firstName.png';
-
+const CHAT_ICON = 'assets/icons/chat.png';
+const BACK_BUTTON = 'assets/icons/backButton.png';
+const SEND_BUTTON = 'assets/icons/Vector.png';
+const AVTAR = 'assets/icons/Ellipse.png';
 
 const REPORT_SENT_ASSET = "assets/icons/reportSent.png";
 const EMAIL_ASSET = "assets/icons/email.png";

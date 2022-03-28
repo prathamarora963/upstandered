@@ -32,7 +32,7 @@ class NotificationDataModel {
     type = json['type'];
     senderImage = json['senderImage'];
     latitude = json['latitude'];
-     longitude = json['longitude'];
+    longitude = json['longitude'];
   }
 
   Map<String, dynamic> toJson() {
@@ -45,7 +45,32 @@ class NotificationDataModel {
     data['notificationType'] = this.notificationType;
     data['type'] = this.type;
     data['latitude'] = this.latitude;
-     data['longitude'] = this.longitude;
+    data['longitude'] = this.longitude;
+    return data;
+  }
+}
+
+class Messagenotification {
+  String username;
+  String userimage;
+  String message;
+
+  Messagenotification({
+    this.username,
+    this.userimage,
+    this.message,
+  });
+  Messagenotification.fromjson(Map<String, dynamic> json) {
+    username = json['user_name'];
+    userimage = json['user_image'];
+    message = json['message'];
+  }
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+
+    data['user_name'] = this.username;
+    data['user_image'] = this.userimage;
+    data['message'] = this.message;
     return data;
   }
 }

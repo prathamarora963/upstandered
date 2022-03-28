@@ -31,12 +31,11 @@ class RegisterSuccessDialogBox extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Material(
-          borderRadius: BorderRadius.circular(20),
-          child: registerBody(context)
-        ));
+            borderRadius: BorderRadius.circular(20),
+            child: registerBody(context)));
   }
 
-  registerBody(BuildContext context){
+  registerBody(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
         padding: const EdgeInsets.only(left: 8, right: 8, bottom: 8),
@@ -113,8 +112,6 @@ class RegisterSuccessDialogBox extends StatelessWidget {
         ));
   }
 }
-
-
 
 /**
  * Active Inactive Dialog Box 
@@ -503,12 +500,12 @@ class ReportToAnyoneDialogBox extends StatelessWidget {
   final void Function() onLater;
   final void Function() onContinue;
 
-   ReportToAnyoneDialogBox({
+  ReportToAnyoneDialogBox({
     Key key,
     @required this.onLater,
     @required this.onContinue,
   }) : super(key: key);
-   double startPoint = 30;
+  double startPoint = 30;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -523,71 +520,72 @@ class ReportToAnyoneDialogBox extends StatelessWidget {
         child: Material(
           borderRadius: BorderRadius.circular(20),
           child: Container(
-        alignment: Alignment.topCenter,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: size.width,
-              height: size.height * 0.065,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: MyTheme.primaryColor,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                  )),
-              child: Text(
-                "REPORT ANYONE?",
-                style: TextStyle(
-                    fontSize: size.height * 0.020, //18,
-                    fontWeight: FontWeight.bold,
-                    color: MyTheme.secondryColor),
-              ),
-            ),
-            SizedBox(height: size.height * 0.01),
-            Container(
-              // color: MyTheme.red,
-              // width: size.width,
-              height: size.height * 0.14,
-              alignment: Alignment.center,
-              child: Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: stackedUsers(size)),
-            ),
-            SizedBox(height: size.height * 0.01),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                RoundedBorderTextButton(
-                  textColor: MyTheme.secondryColor,
-                  title: "NOTHING TO REPORT", //LATER
-                  bgColor: MyTheme.white,
-                  height: size.height * 0.06,
-                  width: size.width * 0.38,
-                  onTap: onLater,
-                  borderColor: MyTheme.white,
-                  borderRadius: 8,
-                  fontSize: size.height * 0.020, //18
-                ),
-                RoundedBorderTextButton(
-                  textColor: MyTheme.secondryColor,
-                  title: "CONTINUE",
-                  bgColor: MyTheme.primaryColor,
-                  height: size.height * 0.06,
-                  width: size.width * 0.38,
-                  onTap: onContinue,
-                  borderColor: MyTheme.primaryColor,
-                  borderRadius: 80,
-                  fontSize: size.height * 0.020, //18,
-                ),
-              ],
-            )
-          ],
-        )),
+              alignment: Alignment.topCenter,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    width: size.width,
+                    height: size.height * 0.065,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: MyTheme.primaryColor,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                        )),
+                    child: Text(
+                      "REPORT ANYONE?",
+                      style: TextStyle(
+                          fontSize: size.height * 0.020, //18,
+                          fontWeight: FontWeight.bold,
+                          color: MyTheme.secondryColor),
+                    ),
+                  ),
+                  SizedBox(height: size.height * 0.01),
+                  Container(
+                    // color: MyTheme.red,
+                    // width: size.width,
+                    height: size.height * 0.14,
+                    alignment: Alignment.center,
+                    child: Stack(
+                        alignment: AlignmentDirectional.center,
+                        children: stackedUsers(size)),
+                  ),
+                  SizedBox(height: size.height * 0.01),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      RoundedBorderTextButton(
+                        textColor: MyTheme.secondryColor,
+                        title: "NOTHING TO REPORT", //LATER
+                        bgColor: MyTheme.white,
+                        height: size.height * 0.06,
+                        width: size.width * 0.38,
+                        onTap: onLater,
+                        borderColor: MyTheme.white,
+                        borderRadius: 8,
+                        fontSize: size.height * 0.020, //18
+                      ),
+                      RoundedBorderTextButton(
+                        textColor: MyTheme.secondryColor,
+                        title: "CONTINUE",
+                        bgColor: MyTheme.primaryColor,
+                        height: size.height * 0.06,
+                        width: size.width * 0.38,
+                        onTap: onContinue,
+                        borderColor: MyTheme.primaryColor,
+                        borderRadius: 80,
+                        fontSize: size.height * 0.020, //18,
+                      ),
+                    ],
+                  )
+                ],
+              )),
         ));
   }
+
   List<Widget> stackedUsers(Size size) {
     List<Widget> users = [];
     print("USER LENGTH :${getAlertDetailsModel.alertData.user.length}");
@@ -603,8 +601,6 @@ class ReportToAnyoneDialogBox extends StatelessWidget {
     return users;
   }
 }
-
-
 
 class ReportToAnyoneDialogBody extends StatelessWidget {
   final void Function() onLater;
@@ -1221,63 +1217,80 @@ class NotificationDialogBox extends StatelessWidget {
     var bordeRadius = size.height * 0.02;
     var marginLeftRight = size.height * 0.012;
     var paddingeftRightTop = size.height * 0.01;
-     var paddingFromLeft = size.height * 0.015;
-    
+    var paddingFromLeft = size.height * 0.015;
+
     return Container(
         height: size.height * 0.14,
-        margin: EdgeInsets.only(left:marginLeftRight, right: marginLeftRight),
-        padding:  EdgeInsets.only(left: paddingeftRightTop,  right: paddingeftRightTop, top: paddingeftRightTop),
+        margin: EdgeInsets.only(left: marginLeftRight, right: marginLeftRight),
+        padding: EdgeInsets.only(
+            left: paddingeftRightTop,
+            right: paddingeftRightTop,
+            top: paddingeftRightTop),
         decoration: BoxDecoration(
           color: MyTheme.primaryColor,
           borderRadius: BorderRadius.circular(bordeRadius),
         ),
         child: Material(
-          color: MyTheme.primaryColor,
-          borderRadius: BorderRadius.circular(bordeRadius),
-          child: Column(
+            color: MyTheme.primaryColor,
+            borderRadius: BorderRadius.circular(bordeRadius),
+            child: Row(
               children: [
                 Align(
-                  heightFactor: 0.0,
-                  alignment :Alignment.topLeft,
+                  // heightFactor: 0.0,
+                  alignment: Alignment.topLeft,
                   child: InkWell(
-                        onTap: onHangUp,
-                        child: Image.asset(
-                          CIRCULAR_CROSS_ASSET,
-                          height: size.height * 0.04,
-                          width: size.height * 0.04,
-                        )),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Image.asset(
+                        CIRCULAR_CROSS_ASSET,
+                        height: size.height * 0.04,
+                        width: size.height * 0.04,
+                      )),
                 ),
                 Padding(
-                  padding:  EdgeInsets.only(left: paddingFromLeft),
-                  child: ListTile(
-                    tileColor: MyTheme.primaryColor,
-                    leading: UserAvatarNetwok(
-                      avatarRadius: size.height * 0.07,
-                      networkImage: notificationDataModel.senderImage,
-                    ),
-                    title: Text(
-                      "${notificationDataModel.senderName}",
-                      style: TextStyle(
-                          fontSize: size.height * 0.025,
-                          fontWeight: FontWeight.bold,
-                          color: MyTheme.secondryColor),
-                    ),
-                    subtitle: Text(
-                      notiMsg,
-                      style: TextStyle(
-                          fontSize: size.height * 0.023,
-                          fontWeight: FontWeight.bold,
-                          color: MyTheme.secondryColor),
+                  padding: const EdgeInsets.only(left: 10, bottom: 40),
+                  child: Container(
+                    child: Row(
+                      children: [
+                        UserAvatarNetwok(
+                          avatarRadius: size.height * 0.07,
+                          networkImage: notificationDataModel.senderImage,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.height * 0.02,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.02),
+                            Text(
+                              "${notificationDataModel.senderName}",
+                              style: TextStyle(
+                                  fontSize: size.height * 0.025,
+                                  fontWeight: FontWeight.bold,
+                                  color: MyTheme.secondryColor),
+                            ),
+                            Text(
+                              notiMsg,
+                              style: TextStyle(
+                                  fontSize: size.height * 0.023,
+                                  fontWeight: FontWeight.bold,
+                                  color: MyTheme.secondryColor),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
-                ),
+                )
               ],
-            )
-        ));
+            )));
   }
 }
-
-
 
 ///////MESSAGE DIALOG BOX/////////
 class MessageDialogBox extends StatelessWidget {
@@ -1317,7 +1330,7 @@ class MessageDialogBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.only(left: 10, top: 10, right: 10),
+        padding: const EdgeInsets.only(left: 10, top: 5, right: 10),
         decoration: BoxDecoration(
             color: MyTheme.primaryColor,
             borderRadius: BorderRadius.circular(10)),

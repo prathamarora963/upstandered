@@ -25,16 +25,14 @@ class Repository {
     return res;
   }
 
-   Future<dynamic> forgotPassword({
+  Future<dynamic> forgotPassword({
     @required String email,
-  
   }) async {
-    var res = await _apis.forgotPassword(email: email, );
+    var res = await _apis.forgotPassword(
+      email: email,
+    );
     return res;
   }
-
-
-  
 
   Future<dynamic> signup({
     @required String email,
@@ -45,16 +43,14 @@ class Repository {
   }
 
   Future<dynamic> sendOTP() async {
-    var res = await _apis.sendOTP(); 
+    var res = await _apis.sendOTP();
     return res;
   }
 
-   Future<dynamic> sendOtpOnNumber( String phoneNumber) async {
-    var res = await _apis.sendOtpOnNumber(phoneNumber); 
+  Future<dynamic> sendOtpOnNumber(String phoneNumber) async {
+    var res = await _apis.sendOtpOnNumber(phoneNumber);
     return res;
   }
-
-
 
   Future<dynamic> verifyOTP({
     @required UpdateProfile createAccount,
@@ -65,7 +61,9 @@ class Repository {
     return res;
   }
 
-  Future<dynamic> updateProfile({@required  Map<dynamic, dynamic> accountDataBody}) async { //@required UpdateProfile createAccount
+  Future<dynamic> updateProfile(
+      {@required Map<dynamic, dynamic> accountDataBody}) async {
+    //@required UpdateProfile createAccount
     // var res = _apis.updateProfile(createAccount: createAccount);
     var res = _apis.updateProfile(accountDataBody: accountDataBody);
     return res;
@@ -80,13 +78,16 @@ class Repository {
     var res = await _apis.getMcqVideo();
     return res;
   }
-  
 
   Future<dynamic> getAllVideoAndQuestions() async {
     var res = await _apis.getAllVideoAndQuestions();
     return res;
   }
-  
+
+  Future<dynamic> getchat({@required String alertid}) async {
+    var res = _apis.getchat(alertid: alertid);
+    return res;
+  }
 
   Future<dynamic> updateUserLoc({
     @required Position position,
@@ -106,8 +107,8 @@ class Repository {
     return res;
   }
 
-  getNearbyUsers(Position position , String alertId) {
-    var res = _apis.getNearbyUsers(position , alertId);
+  getNearbyUsers(Position position, String alertId) {
+    var res = _apis.getNearbyUsers(position, alertId);
     return res;
   }
 
@@ -116,66 +117,65 @@ class Repository {
     return res;
   }
 
-  getCurrentUserProfile(){
+  getCurrentUserProfile() {
     var res = _apis.getCurrentUserProfile();
     return res;
-
   }
 
-  createAlert(Position position , String type) {
-    var res = _apis.createAlert( position ,  type);
+  createAlert(Position position, String type) {
+    var res = _apis.createAlert(position, type);
     return res;
   }
 
-  acceptAlert(String alertId  ) {
-    var res = _apis.acceptAlert( alertId);
+  acceptAlert(String alertId) {
+    var res = _apis.acceptAlert(alertId);
     return res;
   }
-  endAlert( String alertId, String duration, String audioFile) {
-    var res = _apis.endAlert( alertId, duration, audioFile);
+
+  endAlert(String alertId, String duration, String audioFile) {
+    var res = _apis.endAlert(alertId, duration, audioFile);
     return res;
   }
+
   leaveAlert(String alertId) {
-    var res = _apis.leaveAlert( alertId );
+    var res = _apis.leaveAlert(alertId);
     return res;
   }
 
   deleteAlert(String alertId) {
-    var res = _apis.deleteAlert( alertId );
-    return res;
-  }
-  reportUser(String alertId, String toUser ,String reason, String comment) {
-    var res = _apis.reportUser( alertId ,  toUser, reason, comment);
+    var res = _apis.deleteAlert(alertId);
     return res;
   }
 
+  reportUser(String alertId, String toUser, String reason, String comment) {
+    var res = _apis.reportUser(alertId, toUser, reason, comment);
+    return res;
+  }
 
-  matchOldPin(String pin, ) {
+  matchOldPin(
+    String pin,
+  ) {
     var res = _apis.matchOldPin(pin);
     return res;
   }
 
-  
   getOldAlerts() {
     var res = _apis.getOldAlerts();
     return res;
   }
+
   getCurrentAlert() {
     var res = _apis.getCurrentAlert();
     return res;
   }
+
   getAlertDetails(String alertId) {
     var res = _apis.getAlertDetails(alertId);
     return res;
   }
 
-  closeAccount(){
+  closeAccount() {
     var res = _apis.closeAccount();
     return res;
-
   }
-
-  
-
-  
 }

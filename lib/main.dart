@@ -1,5 +1,3 @@
-
-
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -8,6 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mqtt_client/mqtt_client.dart';
+import 'package:mqtt_client/mqtt_server_client.dart';
 import 'package:upstanders/appState/view/router/route_generator.dart';
 import 'package:upstanders/common/theme/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -20,7 +20,23 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 AndroidNotificationChannel channel;
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
+
 void main() async {
+
+  // final client = await redis.Client.connect('redis://52.14.21.106:6379');
+
+  // // Runs some commands.
+  // final commands = client.asCommands<String, String>();
+
+  // // SET key value
+  // await commands.set('key', 'value');
+
+  // // GET key
+  // final value = await commands.get('key');
+  // print(value);
+
+  // // Disconnects.
+  // await client.disconnect();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 

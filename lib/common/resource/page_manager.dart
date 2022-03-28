@@ -53,6 +53,7 @@ class PageManager {
 
     // listen for changes in the total audio duration
     _audioPlayer.onDurationChanged.listen((totalDuration) {
+      print("totalDuration==> ${totalDuration}");
       final oldState = progressNotifier.value;
       progressNotifier.value = ProgressBarState(
         current: oldState.current,
@@ -85,6 +86,7 @@ class ProgressBarState {
     @required this.buffered,
     @required this.total,
   });
+
   final Duration current;
   final Duration buffered;
   final Duration total;
@@ -152,6 +154,7 @@ class _MusicPlayerrState extends State<MusicPlayerr> {
                 ValueListenableBuilder<ProgressBarState>(
                   valueListenable: widget.pageManager.progressNotifier,
                   builder: (_, value, __) {
+                    print("value.total : ${value.total}");
                     return ProgressBar(
                       progress: value.current,
                       buffered: value.buffered,

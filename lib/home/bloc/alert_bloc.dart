@@ -15,6 +15,7 @@ import 'package:upstanders/common/repository/repository.dart';
 import 'package:flutter_sound_platform_interface/flutter_sound_recorder_platform_interface.dart';
 
 part 'alert_event.dart';
+
 part 'alert_state.dart';
 
 const theSource = AudioSource.microphone;
@@ -43,14 +44,14 @@ class AlertBloc extends Bloc<AlertEvent, AlertState> {
   ) async* {
     if (event is CreateAlert) {
       yield state.copyWith(alertStatus: AlertStatus.creatingAlert);
-
       Position position = await getloc();
       var res = await _repository.createAlert(position, event.type);
       print("RESPONSE FOR CREATE ALERT API:$res");
       if (res['status'] == 200) {
         localDataHelper.saveStringValue(
             key: ALERT_ID, value: res['data']['alert_id'].toString());
-
+        localDataHelper.saveStringValue(
+            key: USER_ID, value: res['data']['user_id'].toString());
         localDataHelper.saveValue(key: IS_ACCEPTED_NOTIFIED, value: true);
         localDataHelper.saveValue(key: IS_CREATE_ALERT, value: true);
         _startAudioRecord();
@@ -66,7 +67,6 @@ class AlertBloc extends Bloc<AlertEvent, AlertState> {
       print("ACCEPT ALERT API RESPONSE :$res\n");
 
       if (res['status'] == 200) {
-        
         yield state.copyWith(
           alertStatus: AlertStatus.acceptedAlert,
           res: res,
@@ -82,8 +82,8 @@ class AlertBloc extends Bloc<AlertEvent, AlertState> {
       if (res['status'] == 200) {
         print("UPLOADING AUDIO API RESPONSE :$res\n");
 
-        final resonse = await _repository.endAlert(
-            event.alertId, duration.toString(), res['data']['image'][0]);
+        final resonse = await _repository.endAlert(event.alertId,
+            duration.toString().split('.')[0], res['data']['image'][0]);
         print("ENDING ALERT API RESPONSE :$resonse\n");
 
         if (resonse['status'] == 200) {
@@ -147,6 +147,8 @@ class AlertBloc extends Bloc<AlertEvent, AlertState> {
       print("RESPONSE OF GETTING CURRENT ALERT DETAILS API:$res");
 
       if (res['status'] == 200) {
+        await localDataHelper.saveStringValue(
+            key: ALERT_type, value: res['data']['alertData']['type']);
         alertDetailsModel = GetAlertDetailsModel.fromJson(res['data']);
         yield state.copyWith(
             alertStatus: AlertStatus.gotAlertDetails, res: res);
@@ -231,7 +233,6 @@ class AlertBloc extends Bloc<AlertEvent, AlertState> {
   }
 
   initializeValues() {
-   
     _repository.getCurrentAlert();
 
     if (!Platform.isAndroid) {

@@ -84,8 +84,12 @@ class MapScreenBloc extends Bloc<MapScreenEvent, MapScreenState> {
       String alertId = await localDataHelper.getStringValue(key: ALERT_ID);
 
       final res = await _repository.getNearbyUsers(currentLocation, alertId);
+      print(alertId);
+      print(currentLocation);
 
       print("NEAR BY USER RESPONSE DATA :$res");
+      print("aler id : $alertId");
+
       if (res['status'] == 200) {
         var data = List<dynamic>.from(res['data']);
         List<NearbyUsers> users = [];
@@ -99,9 +103,11 @@ class MapScreenBloc extends Bloc<MapScreenEvent, MapScreenState> {
           event.isAlertInCreatingMode,
         ));
       } else {
+        print("aler id : $alertId");
+        print("currentLocation = $currentLocation");
         loadMarkers = false;
 
-        yield BuildingMarkersFailed(error: res['message']);
+        // yield BuildingMarkersFailed(error: res['message']);
       }
     } else if (event is BuildMarkers) {
       print("BuildingMarkers...................");

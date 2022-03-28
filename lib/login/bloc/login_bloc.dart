@@ -71,6 +71,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       localDataHelper.saveStringValue(
           key: Constants.ACCOUNT_STATUS, value: "3");
       localDataHelper.saveStringValue(key: TOKEN, value: res['data']["token"]);
+      localDataHelper.saveIntValue(
+          key: USERID, value: res['data']['userData']['user_id']);
+      localDataHelper.saveStringValue(
+          key: USERNAME, value: res['data']['userData']['first_name']);
+      localDataHelper.saveStringValue(
+          key: USERIMAGE, value: res['data']['userData']['image']);
       yield state.copyWith(status: FormzStatus.submissionSuccess, res: res);
     }
     if (res['status'] == 403) {
@@ -103,14 +109,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         yield state.copyWith(loginStatus: LoginStatus.forgotSuccess, res: res);
       } else {
         yield state.copyWith(
-            loginStatus: LoginStatus.forgettingPasswordFailure, error: res['message']);
+            loginStatus: LoginStatus.forgettingPasswordFailure,
+            error: res['message']);
       }
     } catch (e) {
       print("GETING EXCEPTION FOR FORGOT PASSWORD:$e");
       yield state.copyWith(
-        loginStatus: LoginStatus.forgettingPasswordFailure,
-        error:e
-      );
+          loginStatus: LoginStatus.forgettingPasswordFailure, error: e);
     }
   }
 }

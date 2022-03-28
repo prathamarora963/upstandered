@@ -13,14 +13,14 @@ class MCQDialogBox extends StatelessWidget {
   final int index;
   final int totalMCQlength;
 
-  const MCQDialogBox({
-    Key key,
-    this.onContinue,
-    this.question,
-    this.optionsList,
-    this.index,
-    this.totalMCQlength
-  }) : super(key: key);
+  const MCQDialogBox(
+      {Key key,
+      this.onContinue,
+      this.question,
+      this.optionsList,
+      this.index,
+      this.totalMCQlength})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -33,13 +33,11 @@ class MCQDialogBox extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Material(
-          borderRadius: BorderRadius.circular(20),
-          child: _mCQDialogBody( size)
-        
-        ));
+            borderRadius: BorderRadius.circular(20),
+            child: _mCQDialogBody(size)));
   }
 
-  _mCQDialogBody(Size size){
+  _mCQDialogBody(Size size) {
     return Container(
         alignment: Alignment.topCenter,
         child: Column(
@@ -83,13 +81,13 @@ class MCQDialogBox extends StatelessWidget {
                           padding: const EdgeInsets.all(1),
                           alignment: Alignment.center,
                           height: size.height * 0.025,
-                          width:  size.height * 0.025,
+                          width: size.height * 0.025,
                           decoration: BoxDecoration(
                               color: MyTheme.primaryColor,
                               borderRadius: BorderRadius.circular(5),
                               border: Border.all(color: MyTheme.black)),
                           child: FittedBox(
-                            fit: BoxFit.fitWidth, 
+                            fit: BoxFit.fitWidth,
                             child: Text(
                               "${index + 1}/$totalMCQlength",
                               textAlign: TextAlign.center,
@@ -108,7 +106,6 @@ class MCQDialogBox extends StatelessWidget {
         ));
   }
 }
-
 
 ///////QUESTION DIALOG BOX
 class QuestionDialogBox extends StatelessWidget {

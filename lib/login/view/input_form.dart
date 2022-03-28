@@ -82,7 +82,7 @@ class _InputFormState extends State<InputForm> {
   _inputsFields(BuildContext context, Size size) {
     double paddingAll = size.height * 0.035;
     return Container(
-      padding:  EdgeInsets.all(paddingAll), //30
+      padding: EdgeInsets.all(paddingAll), //30
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -116,10 +116,10 @@ class _InputFormState extends State<InputForm> {
               ),
               InkWell(
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => BlocProvider.value(
-                            value: widget.loginBloc,
-                            child: ForgotPasswordScreen(),
-                          ))),
+                    builder: (context) => BlocProvider.value(
+                          value: widget.loginBloc,
+                          child: ForgotPasswordScreen(),
+                        ))),
                 child: Text(
                   FORGOT_PASS_BUTTON_TEXT,
                   style: TextStyle(
@@ -151,6 +151,9 @@ class _EmailForm extends StatelessWidget {
       buildWhen: (previous, current) => previous.email != current.email,
       builder: (context, state) {
         return TextFormField(
+          inputFormatters: [
+            FilteringTextInputFormatter.deny(RegExp(r'\s')),
+          ],
           key: const Key('loginForm_EmailInput_textField'),
           keyboardType: TextInputType.emailAddress,
           decoration: new InputDecoration(
@@ -178,7 +181,7 @@ class _EmailForm extends StatelessWidget {
               child: new Image.asset(
                 EMAIL_ASSET,
                 width: size.height * 0.025, //25.0,
-                height: size.height * 0.02 ,//20,
+                height: size.height * 0.02, //20,
               ),
             ),
             hintText: EMAIL_TEXT,
@@ -268,7 +271,7 @@ class _LoginButton extends StatelessWidget {
       height: size.height * 0.08,
       width: isLoading ? size.height * 0.08 : size.width,
       textColor: MyTheme.secondryColor,
-      fontSize: size.height * 0.028,//17,
+      fontSize: size.height * 0.028, //17,
       title: LOGIN_TEXT,
       bgColor: state.email.invalid || state.pin.value.isEmpty
           ? MyTheme.grey

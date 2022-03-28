@@ -196,8 +196,7 @@ class _ReportFormState extends State<ReportForm> {
                 });
               },
               leading: UserAvatarNetwok(
-                  networkImage: reportUsers[index].image,
-                  avatarRadius: 50),
+                  networkImage: reportUsers[index].image, avatarRadius: 50),
               title: Text(
                   "${reportUsers[index].firstName} ${reportUsers[index].lastName}",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
@@ -218,48 +217,53 @@ class _ReportAlertBlocViewState extends State<ReportAlertBlocView> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return BlocProvider<AlertBloc>(
-      create: (context) => AlertBloc(),
-      child: BlocListener<AlertBloc, AlertState>(
-        listener: (context, state) {
-          if (state.alertStatus == AlertStatus.reportingUserFailed) {
-            Fluttertoast.showToast(msg: "${state.res['message']}");
-          } else if (state.alertStatus == AlertStatus.reportedUser) {
-            initiateDataAgain();
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => ReportSentScreen()));
-          }
-        },
-        child: BlocBuilder<AlertBloc, AlertState>(
-          builder: (context, state) {
-            if (state.alertStatus == AlertStatus.reportingUser) {
-              return ProcessingIndicator(
-                size: size.height * 0.0015,
-              );
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).requestFocus(new FocusNode());
+      },
+      child: BlocProvider<AlertBloc>(
+        create: (context) => AlertBloc(),
+        child: BlocListener<AlertBloc, AlertState>(
+          listener: (context, state) {
+            if (state.alertStatus == AlertStatus.reportingUserFailed) {
+              Fluttertoast.showToast(msg: "${state.res['message']}");
+            } else if (state.alertStatus == AlertStatus.reportedUser) {
+              initiateDataAgain();
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ReportSentScreen()));
             }
-            return QuestionDialogBox(
-              options: list(),
-              onSubmit: () {
-                print(
-                    "SELECTED REPORT USER ALERTID:${selectedReportUser.alertId} \nUSER ID:${selectedReportUser.userId} /nREASON:${selectedReportUser.reason}\n COMMENT:${selectedReportUser.comment}}");
-                context.read<AlertBloc>().add(ReportUser(
-                    selectedReportUser.alertId.toString(),
-                    selectedReportUser.userId.toString(),
-                    selectedReportUser.reason,
-                    selectedReportUser.comment));
-              },
-              reportUser: selectedReportUser,
-              onCancel: () {
-                Navigator.of(context).pop();
-              },
-              onChangedcomment: (comment) {
-                setState(() {
-                  selectedReportUser.comment = comment;
-                });
-              }
-              // widget.onChangedcomment,
-              );
           },
+          child: BlocBuilder<AlertBloc, AlertState>(
+            builder: (context, state) {
+              if (state.alertStatus == AlertStatus.reportingUser) {
+                return ProcessingIndicator(
+                  size: size.height * 0.0015,
+                );
+              }
+              return QuestionDialogBox(
+                  options: list(),
+                  onSubmit: () {
+                    print(
+                        "SELECTED REPORT USER ALERTID:${selectedReportUser.alertId} \nUSER ID:${selectedReportUser.userId} /nREASON:${selectedReportUser.reason}\n COMMENT:${selectedReportUser.comment}}");
+                    context.read<AlertBloc>().add(ReportUser(
+                        selectedReportUser.alertId.toString(),
+                        selectedReportUser.userId.toString(),
+                        selectedReportUser.reason,
+                        selectedReportUser.comment));
+                  },
+                  reportUser: selectedReportUser,
+                  onCancel: () {
+                    Navigator.of(context).pop();
+                  },
+                  onChangedcomment: (comment) {
+                    setState(() {
+                      selectedReportUser.comment = comment;
+                    });
+                  }
+                  // widget.onChangedcomment,
+                  );
+            },
+          ),
         ),
       ),
     );

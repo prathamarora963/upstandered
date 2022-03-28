@@ -17,7 +17,7 @@ import 'package:upstanders/register/models/update_profile.dart';
 class Apis {
   LocalDataHelper localDataHelper = LocalDataHelper();
 
-   onSocketException(dynamic e) {
+  onSocketException(dynamic e) {
     print('EXCEPTION ❗:$e');
     if (e is SocketException) {
       Fluttertoast.showToast(msg: "No Internet Connection❗");
@@ -102,7 +102,7 @@ class Apis {
       var response = await http.post(url,
           headers: {"Authorization": "$token"}, body: {"otp": "$otp"});
       Map res = json.decode(response.body);
-       print("VERIFY OTP RESPONSE DATA:$res");
+      print("VERIFY OTP RESPONSE DATA:$res");
       return res;
     } catch (e) {
       onSocketException(e);
@@ -163,6 +163,25 @@ class Apis {
     } catch (e) {
       onSocketException(e);
       throw e;
+    }
+  }
+
+  Future<dynamic> getchat({@required String alertid}) async {
+    var token = await localDataHelper.getStringValue(key: TOKEN);
+    print("GET CHAT API TOKEN: $token");
+
+    try {
+      var url = Uri.parse("$BASE_URL/get-chat-list/$alertid");
+      var response = await http.get(
+        url,
+        headers: {"Authorization": "$token"},
+      );
+      Map res = json.decode(response.body);
+
+      return res;
+    } catch (r) {
+      onSocketException(r);
+      throw r;
     }
   }
 
@@ -259,6 +278,9 @@ class Apis {
     var token = await localDataHelper.getStringValue(key: TOKEN);
     print(
         "GET NEARBY USERS INPUT DATA:{TOKEN:$token,ALERT_ID:$alertId, LOCATION:{$position}}");
+    print("$alertId");
+    print("$position");
+
     try {
       var path = "${BASE_URL}get-all-nearby-user";
       var url = Uri.parse(path);
